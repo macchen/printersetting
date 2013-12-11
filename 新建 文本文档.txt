@@ -1,0 +1,22 @@
+select * from c004
+
+
+select 
+sPrinter_c
+,sPrinter_n
+,sSparePrinter_c
+,bDrive
+,sPrintType
+,sSerialPorts
+,sIpAdd
+,sDrivePrinter
+,dDate
+,sOper_c
+,sRmk
+,istatusup
+dtlast
+from C004
+
+-- insert into C004(sPrinter_c,sPrinter_n,sSparePrinter_c,bDrive,sPrintType,sSerialPorts,sIpAdd,sDrivePrinter,dDate,sOper_c,sRmk,istatusup,dtlast)
+-- values( '5','0','0','0','0','0','0','0',getdate(),'0','0','0',getdate()) 
+
