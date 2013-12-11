@@ -1,0 +1,54 @@
+use master
+go
+if exists(select 1 from sysdatabases where name ='dw_test')
+drop database dw_test
+go
+create database dw_test
+go
+use dw_test
+go
+if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[c004]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+drop table [dbo].[c004]
+GO
+
+CREATE TABLE [dbo].[c004] (
+	[sPrinter_c] char(8) NOT NULL ,
+	[sPrinter_n] varchar(32) NOT NULL ,
+	[sSparePrinter_c] char(8) NOT NULL ,
+	[bDrive] char(1) NOT NULL ,
+	[sPrintType] varchar(16) NOT NULL ,
+	[sSerialPorts] varchar(16) NOT NULL ,
+	[sIpAdd] varchar(32) NOT NULL ,
+	[sDrivePrinter] varchar(64) NOT NULL ,
+	[dDate] datetime NOT NULL ,
+	[sOper_c] char(8) NOT NULL ,
+	[sRmk] varchar(255) NOT NULL ,
+	[istatusup] int NOT NULL ,
+	[dtlast] datetime NOT NULL ,
+	[print_area] [varchar] (20) COLLATE Chinese_PRC_CI_AS NULL ,
+	[iBillRemind] int NULL ,
+	[cnettype] char(1) NULL ,
+	[bPrintTurn] char(1) NULL ,
+	[bStart] char(1) NULL ,
+	[ePrinterStatus] varchar(32) NULL ,
+	[nPrintNum] int NULL ,
+	[nErrNum] int NULL ,
+	[nSuccessNum] int NULL ,
+	[nCycleNum] int NULL ,
+	[bErr] char(1) NULL ,
+	[sPrnType] char(1) NULL ,
+	[status_port] int NULL ,
+	[sPort] varchar(16) NULL ,
+	[bcut] char(1) NULL 
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[c004] WITH NOCHECK ADD 
+	CONSTRAINT [PK_c004] PRIMARY KEY  CLUSTERED 
+	(
+		[sPrinter_c]
+	)  ON [PRIMARY] 
+GO
+
+setuser
+GO
